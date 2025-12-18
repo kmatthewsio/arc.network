@@ -2,7 +2,7 @@
 pragma solidity ^0.8.30;
 
 import {Script} from "forge-std/Script.sol";
-import {GuestBook} from "../src/GuestBook.sol";
+import {GuestBook} from "../src/GuestBook/GuestBook.sol";
 import "forge-std/console.sol";
 
 contract DeployGuestBook is Script {

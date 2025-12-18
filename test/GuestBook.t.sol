@@ -2,7 +2,7 @@
 pragma solidity ^0.8.30;
 
 import {Test} from "forge-std/Test.sol";
-import  {GuestBook} from "../src/GuestBook.sol";
+import  {GuestBook} from "../src/GuestBook/GuestBook.sol";
 
 contract GuestBookTest is Test {
     GuestBook public guestbook;

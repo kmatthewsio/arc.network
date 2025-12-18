@@ -1,0 +1,10 @@
+{
+  "python.analysis.exclude": [
+    "**/src/**",
+    "**/test/**",
+    "**/script/**"
+  ],
+
+  "solidity.compileUsingRemoteVersion": "v0.8.30",
+  "solidity.defaultCompiler": "remote"
+}
