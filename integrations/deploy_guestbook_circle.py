@@ -43,8 +43,8 @@ def load_abi_and_bytecode(artifact_path: Path):
 
 
 def init_clients():
-    api_key = "TEST_API_KEY:c9ad7682997f89121f570a2e75c3431b:69130b1f648bcc5852678a592c9fd71f" #os.environ.get("CIRCLE_API_KEY")
-    entity_secret = "9ac357b8d740882d40017906388811fd9e99bc2a8f19124a9cea775e21dec023" #os.environ.get("CIRCLE_ENTITY_SECRET")
+    api_key =  os.getenv("CIRCLE_API_KEY")
+    entity_secret = os.getenv("CIRCLE_ENTITY_SECRET")
     if not api_key or not entity_secret:
         raise EnvironmentError("Set CIRCLE_API_KEY and CIRCLE_ENTITY_SECRET in your environment.")
 
@@ -112,7 +112,11 @@ def main():
     abi_json, bytecode = load_abi_and_bytecode(ARTIFACT_PATH)
     wallets_client, contracts_client = init_clients()
 
-    wallet_id, address, wallet_set_id = create_wallet_on_arc(wallets_client)
+    wallet_id = os.getenv("CIRCLE_WALLETID")
+
+    if not wallet_id:
+
+        wallet_id, address, wallet_set_id = create_wallet_on_arc(wallets_client)
 
     print("\n=== Circle Wallet Created (ARC-TESTNET) ===")
     print("walletSetId :", wallet_set_id)
